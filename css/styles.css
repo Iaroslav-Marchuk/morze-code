@@ -1,0 +1,140 @@
+body {
+  font-family: "Roboto", sans-serif;
+  color: #434455;
+  background-color: #151a1e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0;
+}
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  cursor: pointer;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(14, 50px);
+  grid-template-rows: repeat(11, 50px);
+}
+
+.grid-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+  position: relative;
+}
+
+.merged-cell {
+  grid-column: 7 / span 2;
+  grid-row: 1 / span 2;
+  background-color: lightblue;
+}
+
+.ring {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #4b5320;
+  background-color: #4b5320;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.square {
+  width: 30px;
+  height: 10px;
+  border-radius: 2px;
+  border: 1px solid #4b5320;
+  background-color: #4b5320;
+  position: absolute;
+}
+
+.connect {
+  background-color: blue;
+  position: absolute;
+}
+
+.connect-2-1,
+.connect-2-3,
+.connect-2-5,
+.connect-2-9,
+.connect-2-11,
+.connect-3-3,
+.connect-3-5,
+.connect-3-9,
+.connect-3-11,
+.connect-4-5,
+.connect-4-9,
+.connect-5-5,
+.connect-5-9,
+.connect-6-5,
+.connect-6-9,
+.connect-7-5,
+.connect-7-9,
+.connect-8-5,
+.connect-8-9,
+.connect-9-5,
+.connect-9-9,
+.square-3-1,
+.square-3-3,
+.square-3-5,
+.square-8-5,
+.square-10-5 {
+  transform-origin: center;
+  transform: rotate(90deg);
+}
+
+.letter {
+  position: absolute;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 36px;
+}
+
+.btn {
+  margin-left: 20px;
+}
+
+.letter:hover {
+  transform: scale(1.2);
+  color: #fff;
+  box-shadow: 10px 10px 100px 6px #b9e769;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.highlight {
+  background-color: #b9e769;
+  color: #fff;
+  border: 1px solid #b9e769;
+  box-shadow: 10px 10px 100px 6px #b9e769;
+  transition: background-color 0.3s ease-in-out;
+}
