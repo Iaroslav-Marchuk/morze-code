@@ -1,18 +1,44 @@
-export const lettersCells = [
+export const cells = [
   {
-    letter: "H",
-    letterPosition: { row: 0, col: 0, position: "bottom" },
-    morse: "....",
-    morsePosition: [
-      [1, 5],
-      [1, 3],
-      [1, 1],
-      [1, 0],
-    ],
-    morseConnection: [
-      { from: [1, 0], to: [1, 5], type: "h", startHalf: true, endHalf: false },
-    ],
+    letter: {
+      coord: [1, 1],
+      orientation: "bottom",
+      symbol: "H",
+    },
+
+    morseSymbol: {
+      morseCode: "....",
+      morsePosition: [
+        { coord: [2, 6], symbol: "dot" },
+        { coord: [2, 4], symbol: "dot" },
+        { coord: [2, 2], symbol: "dot" },
+        { coord: [2, 1], symbol: "dot" },
+      ],
+      morseConnection: [
+        {
+          from: [2, 1],
+          to: [2, 6],
+          type: "h",
+          startHalf: true,
+          endHalf: false,
+        },
+      ],
+    },
   },
+
+  // {
+  //   letter: "S",
+  //   letterPosition: { coord: [1, 2], orientation: "bottom" },
+  //   morse: "...",
+  //   morsePosition: [
+  //     { coord: [2, 6], symbol: "dot" },
+  //     { coord: [2, 4], symbol: "dot" },
+  //     { coord: [2, 2], symbol: "dot" },
+  //   ],
+  //   morseConnection: [
+  //     { from: [2, 2], to: [2, 6], type: "h", startHalf: true, endHalf: false },
+  //   ],
+  // },
 
   // {
   //   letter: "S",
@@ -176,17 +202,46 @@ export const lettersCells = [
   //   ],
   // },
 
-  // {
-  //   letter: "L",
-  //   letterPosition: { row: 6, col: 2, position: "bottom" },
-  //   morse: ".-..",
-  //   morsePosition: [
-  //     [1, 5],
-  //     [3, 5],
-  //     [7, 3],
-  //     [7, 2],
-  //   ],
-  // },
+  {
+    letter: {
+      coord: [7, 3],
+      orientation: "bottom",
+      symbol: "L",
+    },
+
+    morseSymbol: {
+      morseCode: ".-..",
+      morsePosition: [
+        { coord: [2, 6], symbol: "dot" },
+        { coord: [4, 6], symbol: "dash" },
+        { coord: [8, 4], symbol: "dot" },
+        { coord: [8, 3], symbol: "dot" },
+      ],
+      morseConnection: [
+        {
+          from: [2, 6],
+          to: [2, 6],
+          type: "h",
+          startHalf: true,
+          endHalf: false,
+        },
+        {
+          from: [2, 6],
+          to: [8, 6],
+          type: "v",
+          startHalf: true,
+          endHalf: true,
+        },
+        {
+          from: [8, 3],
+          to: [8, 6],
+          type: "h",
+          startHalf: true,
+          endHalf: true,
+        },
+      ],
+    },
+  },
 
   // {
   //   letter: "R",
@@ -200,13 +255,35 @@ export const lettersCells = [
   // },
 
   // {
-  //   letter: "N",
-  //   letterPosition: { row: 6, col: 8, position: "right" },
-  //   morse: "-.",
-  //   morsePosition: [
-  //     [1, 8],
-  //     [6, 9],
-  //   ],
+  //   letter: {
+  //     coord: [7, 9],
+  //     orientation: "right",
+  //     symbol: "N",
+  //   },
+
+  //   morseSymbol: {
+  //     morseCode: "-.",
+  //     morsePosition: [
+  //       { coord: [2, 9], symbol: "dash" },
+  //       { coord: [7, 10], symbol: "dot" },
+  //     ],
+  //     morseConnection: [
+  //       {
+  //         from: [2, 9],
+  //         to: [2, 10],
+  //         type: "h",
+  //         startHalf: false,
+  //         endHalf: true,
+  //       },
+  //       {
+  //         from: [2, 10],
+  //         to: [7, 10],
+  //         type: "v",
+  //         startHalf: true,
+  //         endHalf: true,
+  //       },
+  //     ],
+  //   },
   // },
 
   // {
@@ -220,6 +297,53 @@ export const lettersCells = [
   //   ],
   // },
 
+  {
+    letter: {
+      coord: [9, 12],
+      orientation: "top",
+      symbol: "C",
+    },
+
+    morseSymbol: {
+      morseCode: ".-.-",
+      morsePosition: [
+        { coord: [2, 9], symbol: "dash" },
+        { coord: [7, 10], symbol: "dot" },
+        { coord: [7, 11], symbol: "dash" },
+        { coord: [8, 12], symbol: "dot" },
+      ],
+      morseConnection: [
+        {
+          from: [2, 9],
+          to: [2, 10],
+          type: "h",
+          startHalf: false,
+          endHalf: true,
+        },
+        {
+          from: [2, 10],
+          to: [7, 10],
+          type: "v",
+          startHalf: true,
+          endHalf: true,
+        },
+        {
+          from: [7, 10],
+          to: [7, 12],
+          type: "h",
+          startHalf: true,
+          endHalf: true,
+        },
+        {
+          from: [7, 12],
+          to: [8, 12],
+          type: "v",
+          startHalf: true,
+          endHalf: true,
+        },
+      ],
+    },
+  },
   // {
   //   letter: "C",
   //   letterPosition: { row: 8, col: 11, position: "top" },
@@ -290,72 +414,34 @@ export const lettersCells = [
   // },
 ];
 
-export const ringCells = [
-  [1, 0],
-  [1, 1],
-  [1, 3],
-  [1, 5],
-  [3, 11],
-  [4, 3],
-  [4, 11],
-  [6, 9],
-  [7, 2],
-  [7, 3],
-  [7, 11],
-  [9, 3],
-  [9, 9],
-  [10, 9],
-];
+// export const ringCells = [
+//   [1, 0],
+//   [1, 1],
+//   [1, 3],
+//   [1, 5],
+//   [3, 11],
+//   [4, 3],
+//   [4, 11],
+//   [6, 9],
+//   [7, 2],
+//   [7, 3],
+//   [7, 11],
+//   [9, 3],
+//   [9, 9],
+//   [10, 9],
+// ];
 
-export const squareCells = [
-  [1, 8],
-  [1, 10],
-  [1, 12],
-  [3, 1],
-  [3, 3],
-  [3, 5],
-  [3, 12],
-  [6, 10],
-  [6, 12],
-  [8, 5],
-  [9, 10],
-  [10, 5],
-];
-
-export const connectCells = [
-  [1, 1],
-  [1, 2],
-  [1, 3],
-  [1, 4],
-  [1, 5],
-  [1, 8],
-  [1, 9],
-  [1, 10],
-  [1, 11],
-  [2, 1],
-  [2, 3],
-  [2, 5],
-  [2, 9],
-  [2, 11],
-  [3, 3],
-  [3, 5],
-  [3, 9],
-  [3, 11],
-  [4, 5],
-  [4, 9],
-  [5, 5],
-  [5, 9],
-  [6, 5],
-  [6, 9],
-  [6, 10],
-  [6, 11],
-  [7, 3],
-  [7, 4],
-  [7, 5],
-  [7, 9],
-  [8, 5],
-  [8, 9],
-  [9, 4],
-  [9, 5],
-  [9, 9],
-];
+// export const squareCells = [
+//   [1, 8],
+//   [1, 10],
+//   [1, 12],
+//   [3, 1],
+//   [3, 3],
+//   [3, 5],
+//   [3, 12],
+//   [6, 10],
+//   [6, 12],
+//   [8, 5],
+//   [9, 10],
+//   [10, 5],
+// ];
