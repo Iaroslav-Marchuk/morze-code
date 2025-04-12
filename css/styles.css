@@ -37,6 +37,7 @@ button {
 }
 
 .grid-container {
+  margin-top: 40px;
   display: grid;
   grid-template-columns: repeat(14, 50px);
   grid-template-rows: repeat(11, 50px);
@@ -84,13 +85,6 @@ button {
   position: absolute;
 }
 
-/* 
-
-
-
-
-
-
 .form {
   display: flex;
   justify-content: center;
@@ -102,17 +96,28 @@ button {
   margin-left: 20px;
 }
 
-.letter:hover {
+/* .letter:hover {
   transform: scale(1.2);
   color: #fff;
   box-shadow: 10px 10px 100px 6px #b9e769;
   transition: background-color 0.3s ease-in-out;
-}
+} */
 
 .highlight {
+  cursor: pointer;
+  z-index: 999;
   background-color: #b9e769;
   color: #fff;
   border: 1px solid #b9e769;
   box-shadow: 10px 10px 100px 6px #b9e769;
   transition: background-color 0.3s ease-in-out;
-} */
+}
+
+.highlightCon {
+  cursor: pointer;
+  z-index: 999;
+  background-color: #708946;
+  border: 1px solid #708946;
+  box-shadow: 5px 5px 50px 3px #708946;
+  transition: background-color 0.3s ease-in-out;
+}

@@ -34,10 +34,11 @@ export function createLetters(cells, row, col, gridCell) {
       const elLetter = document.createElement("div");
       elLetter.classList.add(
         "letter",
-        `letter-${letterRowPos}-${letterColPos}`
+        `letter-${item.letter.symbol}-${letterRowPos}-${letterColPos}`
       );
       elLetter.style[item.letter.orientation] = "1px";
       elLetter.textContent = item.letter.symbol;
+      elLetter.dataset.symbol = item.letter.symbol;
       gridCell.appendChild(elLetter);
     }
   });
@@ -56,6 +57,7 @@ export function createDashDot(cells, row, col, gridCell) {
           `${morseItem.symbol}-${morseRowPos}-${morseColPos}`
         );
 
+        elDotOrDash.dataset.symbol = item.letter.symbol;
         if (morseItem.symbol === "dash") {
           item.morseSymbol.morseConnection.forEach((lineEl) => {
             const fromRowEl = lineEl.from[0];
@@ -109,6 +111,7 @@ export function createConnection(cells, row, col, gridContainer) {
         line.style.height = "2px";
         line.style.left = `${fromCol * 50 - startOffset}px`;
         line.style.top = `${fromRow * 50 - 27}px`;
+        line.dataset.lineSymbol = connect.letter.symbol;
         gridContainer.appendChild(line);
       }
 
@@ -125,9 +128,9 @@ export function createConnection(cells, row, col, gridContainer) {
         line.style.position = "absolute";
         line.style.width = "2px";
         line.style.height = `${length}px`;
-        line.style.left = `${fromCol * 50 - 27}px`; // по центру клітинки по X
-        line.style.top = `${fromRow * 50 - startOffset}px`; // враховуємо offset
-
+        line.style.left = `${fromCol * 50 - 27}px`;
+        line.style.top = `${fromRow * 50 - startOffset}px`;
+        line.dataset.lineSymbol = connect.letter.symbol;
         gridContainer.appendChild(line);
       }
     });
