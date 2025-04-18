@@ -1,4 +1,5 @@
 import { cells } from "./data.js";
+import { hoverEffect } from "./events.js";
 
 export function createGrid(rows, cols, container) {
   for (let row = 1; row <= rows; row++) {
@@ -6,15 +7,15 @@ export function createGrid(rows, cols, container) {
       const gridCell = document.createElement("div");
       gridCell.classList.add("grid-cell");
 
-      // if (
-      //   (row === 1 && col === 7) ||
-      //   (row === 1 && col === 8) ||
-      //   (row === 2 && col === 7) ||
-      //   (row === 2 && col === 8)
-      // ) {
-      //   gridCell.classList.add("merged-cell");
-      //   gridCell.textContent = "START";
-      // }
+      if (
+        (row === 1 && col === 7) ||
+        (row === 1 && col === 8) ||
+        (row === 2 && col === 7) ||
+        (row === 2 && col === 8)
+      ) {
+        gridCell.classList.add("merged-cell");
+        gridCell.textContent = "START";
+      }
 
       createLetters(cells, row, col, gridCell);
       createDashDot(cells, row, col, gridCell);
@@ -23,6 +24,7 @@ export function createGrid(rows, cols, container) {
       container.appendChild(gridCell);
     }
   }
+  hoverEffect();
 }
 
 export function createLetters(cells, row, col, gridCell) {
@@ -38,7 +40,7 @@ export function createLetters(cells, row, col, gridCell) {
       );
       elLetter.style[item.letter.orientation] = "1px";
       elLetter.textContent = item.letter.symbol;
-      elLetter.dataset.symbol = item.letter.symbol;
+      elLetter.dataset.letterSymbol = item.letter.symbol;
       gridCell.appendChild(elLetter);
     }
   });
@@ -57,7 +59,9 @@ export function createDashDot(cells, row, col, gridCell) {
           `${morseItem.symbol}-${morseRowPos}-${morseColPos}`
         );
 
-        elDotOrDash.dataset.symbol = item.letter.symbol;
+        elDotOrDash.dataset.dashDotSymbol = item.letter.symbol;
+        elDotOrDash.dataset.coord = `${morseRowPos}-${morseColPos}`;
+
         if (morseItem.symbol === "dash") {
           item.morseSymbol.morseConnection.forEach((lineEl) => {
             const fromRowEl = lineEl.from[0];

@@ -69,6 +69,7 @@ button {
   background-color: #4b5320;
   border-radius: 50%;
   position: absolute;
+  transition: background-color 0.3s ease;
 }
 
 .dash {
@@ -78,11 +79,7 @@ button {
   border: 1px solid #4b5320;
   background-color: #4b5320;
   position: absolute;
-}
-
-.connect {
-  background-color: blue;
-  position: absolute;
+  transition: background-color 0.3s ease;
 }
 
 .form {
@@ -96,28 +93,46 @@ button {
   margin-left: 20px;
 }
 
-/* .letter:hover {
-  transform: scale(1.2);
-  color: #fff;
-  box-shadow: 10px 10px 100px 6px #b9e769;
-  transition: background-color 0.3s ease-in-out;
-} */
+.connect {
+  position: absolute;
+  background-color: blue;
+}
 
-.highlight {
+.highlight-letter {
+  color: #b9e769;
+  font-weight: bold;
+  transform: scale(1.2);
+  text-shadow: 0 0 8px #b9e769, 0 0 12px #b9e769;
+  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+.highlight-dash-dot {
   cursor: pointer;
   z-index: 999;
   background-color: #b9e769;
-  color: #fff;
   border: 1px solid #b9e769;
   box-shadow: 10px 10px 100px 6px #b9e769;
   transition: background-color 0.3s ease-in-out;
+  animation: wave 0.4s ease-out;
 }
 
-.highlightCon {
+.highlight-line {
   cursor: pointer;
   z-index: 999;
   background-color: #708946;
   border: 1px solid #708946;
   box-shadow: 5px 5px 50px 3px #708946;
   transition: background-color 0.3s ease-in-out;
+}
+
+@keyframes wave {
+  0% {
+    box-shadow: 0 0 0px 0px rgba(255, 255, 0, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 10px 5px rgba(255, 255, 0, 1);
+  }
+  100% {
+    box-shadow: 0 0 0px 0px rgba(255, 255, 0, 0.8);
+  }
 }
